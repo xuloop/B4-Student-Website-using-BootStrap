@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+header {
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 2px solid #908d8d;
+}
+
+p {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+header h1 {
+    font-family: Helvetica, Arial;
+    color: rgb(128, 0, 128);
+    font-style: italic;
+    margin: 0;
+}
+
+h2 {
+    color: green;
+    margin-top: 0;
+}
+
+.left-panel {
+    width: 20%;
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+}
+
+.left-panel h2 {
+    color: white; /* Ensure the header is also white */
+}
+
+.left-panel a {
+    color: white; /* Set link color to white */
+    text-decoration: none; /* Remove underline */
+}
+
+.left-panel a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+

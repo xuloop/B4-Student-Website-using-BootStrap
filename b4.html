@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Ming-Hwa Wang - Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="b3_style.css">
+    <style>
+        .course-list {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white; /* Text color */
+            padding: 15px; /* Add some padding */
+            border-radius: 0px; /* Rounded corners */
+            margin-left: 0px; /* Move it more to the left */
+        }
+        .dropdown-toggle {
+            background-color: #007bff; /* Ensure the button is blue */
+            color: white; /* Text color */
+        }
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            background-color: #0056b3; /* Darker blue on hover and focus */
+            color: white; /* Text color */
+        }
+        .tab-content {
+            background-color: transparent; /* No background color */
+            padding: 20px; /* Optional: Add some padding to the content */
+            border: none; /* Optional: Remove border */
+        }
+        .counter {
+            text-align: center; /* Center the counter */
+            margin: 10px 0; /* Add margin for spacing */
+            font-size: 0.8em; /* Smaller font size */
+            position: relative; /* Change to relative for correct placement */
+            padding: 10px; /* Optional: Add some padding */
+        }
+        .nav-tabs {
+            width: 100%; /* Make the navbar take full width */
+            padding: 10px 0; /* Add vertical padding */
+        }
+
+        .nav-item {
+            flex: 1; /* Make each tab item take equal space */
+            text-align: center; /* Center the text within each tab */
+        }
+        body {
+            background-color: #f8f9fa; /* This is Bootstrap's light grey background */
+        }
+
+        .tab-pane {
+            background-color: #f8f9fa; /* Match the body background color */
+            padding: 20px; /* Maintain padding for content spacing */
+        }
+        .nav {
+            width: 100%; /* Full width */
+            margin: 0; /* Remove margin */
+        }
+        .nav-tabs {
+            width: 100%; /* Make sure the nav-tabs takes the full width */
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .nav-item {
+            flex: 1; /* Make each item take equal space */
+            text-align: center; /* Center the text within each tab */
+            padding: 10px 0; /* Add vertical padding */
+        }
+
+        .nav-link {
+            color: white; /* Set text color to white */
+        }
+
+        .nav-link:hover {
+            color: #d1d1d1; /* Slightly lighter color on hover for contrast */
+        }
+
+        .nav-link.active {
+            color: white; /* Ensure active tab text is also white */
+        }
+        .container-fluid {
+            padding: 0;
+            margin: 0 
+        }
+        .pagination-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .pagination-buttons .btn-nav {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 100px; 
+        }
+        .pagination-buttons .btn-nav:hover {
+            background-color: #0056b3;
+        }
+        .pagination-control {
+            display: flex;
+            justify-content: center;
+            gap: 0; 
+            width: 100%;
+        }
+        .pagination-control .btn-nav {
+            margin: 0; 
+        }
+    </style>
+    <script src="script.js" defer></script>
+    <script>
+         // JavaScript for previous/next navigation
+         document.addEventListener("DOMContentLoaded", function () {
+            const tabIds = ['#nav-bio-tab', '#nav-research-tab', '#nav-pubs-tab', '#nav-disclaimer-tab'];
+            let currentTabIndex = 0;
+
+            function showTab(index) {
+                $(tabIds[currentTabIndex]).removeClass('active');
+                $($(tabIds[currentTabIndex]).attr('href')).removeClass('show active');
+
+                currentTabIndex = index;
+
+                $(tabIds[currentTabIndex]).addClass('active');
+                $($(tabIds[currentTabIndex]).attr('href')).addClass('show active');
+            }
+
+            document.getElementById("nextBtn").addEventListener("click", function () {
+                if (currentTabIndex < tabIds.length - 1) {
+                    showTab(currentTabIndex + 1);
+                }
+            });
+
+            document.getElementById("prevBtn").addEventListener("click", function () {
+                if (currentTabIndex > 0) {
+                    showTab(currentTabIndex - 1);
+                }
+            });
+
+            // Adding pagination buttons functionality
+            document.getElementById("btn1").addEventListener("click", function () {
+                showTab(0);
+            });
+
+            document.getElementById("btn2").addEventListener("click", function () {
+                showTab(1);
+            });
+
+            document.getElementById("btn3").addEventListener("click", function () {
+                showTab(2);
+            });
+
+            document.getElementById("btn4").addEventListener("click", function () {
+                showTab(3);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div id="header-text" class="text-center my-4">
+            <h1>Prof. Ming-Hwa Wang</h1>
+            <a href="https://catalog.sjsu.edu/preview_entity.php?catoid=15&ent_oid=1997" target="_blank">Department of Applied Data Science</a>
+            <p>San Jose State University</p>
+        </div>
+    </header>
+
+
+    <div class="container d-flex flex-column flex-md-row">
+        <div class="col-12 col-md-3 course-list">
+            <h2>Course List</h2>
+            <div class="list-group">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="aiDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        AI Related Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="aiDropdown">
+                        <a class="dropdown-item" href="#artificial-intelligence">Artificial Intelligence</a>
+                        <a class="dropdown-item" href="#data-mining">Data Mining</a>
+                        <a class="dropdown-item" href="#deep-learning">Deep Learning</a>
+                        <a class="dropdown-item" href="#information-retrieval">Information Retrieval</a>
+                        <a class="dropdown-item" href="#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="#natural-language-processing">Natural Language Processing</a>
+                        <a class="dropdown-item" href="#semantic-web">Semantic Web</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="systemDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        System Related Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="systemDropdown">
+                        <a class="dropdown-item" href="#big-data">Big Data</a>
+                        <a class="dropdown-item" href="#cloud-computing">Cloud Computing</a>
+                        <a class="dropdown-item" href="#computer-architecture">Computer Architecture</a>
+                        <a class="dropdown-item" href="#computer-networks">Computer Networks</a>
+                        <a class="dropdown-item" href="#distributed-computing">Distributed Computing</a>
+                        <a class="dropdown-item" href="#internet-architecture">Internet Architecture and Protocols</a>
+                        <a class="dropdown-item" href="#operating-systems">Operating Systems</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="theoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Theory Related Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="theoryDropdown">
+                        <a class="dropdown-item" href="#compilers">Compilers</a>
+                        <a class="dropdown-item" href="#computer-security">Computer Security</a>
+                        <a class="dropdown-item" href="#data-structures">Data Structures and Computer Algorithms</a>
+                        <a class="dropdown-item" href="#discrete-structures">Discrete Structures</a>
+                        <a class="dropdown-item" href="#network-science">Network Science</a>
+                        <a class="dropdown-item" href="#programming-languages">Programming Languages</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="applicationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Application Related Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="applicationDropdown">
+                        <a class="dropdown-item" href="#computer-graphics">Computer Graphics</a>
+                        <a class="dropdown-item" href="#database-systems">Database Systems</a>
+                        <a class="dropdown-item" href="#interactive-multimedia">Interactive Multimedia & Game Programming</a>
+                        <a class="dropdown-item" href="#visualization">Visualization</a>
+                        <a class="dropdown-item" href="#" onclick="navigateTo('/web/');event.preventDefault();">Web Programming</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="hardwareDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Hardware Related Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="hardwareDropdown">
+                        <a class="dropdown-item" href="#computer-aided-design">Computer-Aided Design</a>
+                        <a class="dropdown-item" href="#soc-verification">SoC Verification</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle list-group-item" type="button" id="otherDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Other Courses
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="otherDropdown">
+                        <a class="dropdown-item" href="#analytics-process">Analytics Process</a>
+                        <a class="dropdown-item" href="#capstone">Capstone</a>
+                        <a class="dropdown-item" href="#projects">Projects</a>
+                        <a class="dropdown-item" href="#bio">Biography</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="content" class="col-12 col-md-9">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-bio-tab" data-toggle="tab" href="#nav-bio" role="tab" aria-controls="nav-bio" aria-selected="true">Biography</a>
+                    <a class="nav-item nav-link" id="nav-research-tab" data-toggle="tab" href="#nav-research" role="tab" aria-controls="nav-research" aria-selected="false">Research</a>
+                    <a class="nav-item nav-link" id="nav-pubs-tab" data-toggle="tab" href="#nav-pubs" role="tab" aria-controls="nav-pubs" aria-selected="false">Publications</a>
+                    <a class="nav-item nav-link" id="nav-disclaimer-tab" data-toggle="tab" href="#nav-disclaimer" role="tab" aria-controls="nav-disclaimer" aria-selected="false">Disclaimer</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-bio" role="tabpanel" aria-labelledby="nav-bio-tab">
+                    <h2>Biography</h2>
+                    <p>Prof. Ming-Hwa Wang is an Associate Professor in the Department of Applied Data Science at San Jose State University. He received his Ph.D. in Computer Science from the Illinois Institute of Technology in 1991. His research interests include computer vision and computer processing systems.</p>
+                </div>
+                <div class="tab-pane fade" id="nav-research" role="tabpanel" aria-labelledby="nav-research-tab">
+                    <h2>Research</h2>
+                    <p>Prof. Wang’s research focuses on computer vision, computer systems, and distributed languages. He is particularly interested in developing algorithms for Actor-like models, based on distributed data and pattern matching capabilities, and understanding the underlying principles of synchronous and asynchronous message processing.</p>
+                </div>
+                <div class="tab-pane fade" id="nav-pubs" role="tabpanel" aria-labelledby="nav-pubs-tab">
+                    <h2>Publications</h2>
+                    <ul>
+                        <li>
+                            <a href="https://www.researchgate.net/publication/254018200_An_Optimal_and_Flexible_TCAM_Software_Simulation_Algorithm">
+                                Wang, Min. "An Optimal and Flexible TCAM Software Simulation Algorithm." ResearchGate, 2014.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.researchgate.net/publication/221085890_Simulate_CSP-like_Synchronous_Communications_by_MDC_Asynchronous_Message_Passing_and_Pattern_Matching">
+                                Wang, Min. "Simulate CSP-like Synchronous Communications by MDC: Asynchronous Message Passing and Pattern Matching." ResearchGate, 2010.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="nav-disclaimer" role="tabpanel" aria-labelledby="nav-disclaimer-tab">
+                    <h2>Disclaimer</h2>
+                    <p>The content of these web pages is not generated by and does not represent the views of San Jose State University or any of its departments or organizations.</p>
+                </div>
+            </div>
+
+            <div class="pagination-buttons">
+                <button id="prevBtn" class="btn-nav">Previous</button>
+                <div class="pagination-control">
+                    <button id="btn1" class="btn-nav">1</button>
+                    <button id="btn2" class="btn-nav">2</button>
+                    <button id="btn3" class="btn-nav">3</button>
+                    <button id="btn4" class="btn-nav">4</button>
+                </div>
+                <button id="nextBtn" class="btn-nav">Next</button>
+            </div>
+
+            <div class="counter">
+                Page visits: <span id="visitCount">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

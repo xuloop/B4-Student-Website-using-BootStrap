@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Support Page</h1>
+    <div class="counter">Page visits: <span id="visitCount">0</span></div>
+    <p>If you need help, please reach out to us!</p>
+
+    <script>
+        // Fetch the visit count from the server
+        fetch('/visit-count')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visitCount').innerText = data.count;
+            });
+    </script>
+</body>
+</html>
